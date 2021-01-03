@@ -7,7 +7,7 @@ This [pre-commit](https://pre-commit.com/) hook can help you find defined variab
 Expand (or create) your `.pre-commit-config.yml` with this section:
 
 ```yaml
-- repo: https://github.com/robertdebock/pre-commit-ansible-unused-variables
+- repo: https://github.com/robertdebock/pre-commit
   # Optionally, you can refer to a specific release. If not defined, `master` is used.
   # rev: 1.0.0
   hooks:
