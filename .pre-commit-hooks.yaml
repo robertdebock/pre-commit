@@ -1,7 +1,7 @@
 ---
 
 - id: ansible_role_find_unused_variable
-  name: Ansible role find unused variable
+  name: Find unused variables in Ansible role
   entry: ansible_role_find_unused_variable.sh
   language: script
-  description: Find unused variables in ansible roles.
+  description: Find unused variables in Ansible role.
