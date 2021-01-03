@@ -9,7 +9,7 @@ Expand (or create) your `.pre-commit-config.yml` with this section:
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.0.0
+    rev: v1.0.1
     hooks:
       - id: ansible_role_find_unused_variable
 ```

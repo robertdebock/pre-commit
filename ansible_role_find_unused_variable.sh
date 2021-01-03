@@ -18,7 +18,7 @@ checker() {
       matches=$(grep -Rilw "${variable}" | grep -vE '(tasks/assert.yml|README.md)' | wc -l)
       internalmatches=$(grep -icw "${variable}" ${type}/main.yml)
       if [ ${matches} -le 1 -a ${internalmatches} -le 1 ] ; then
-        echo "${type}/main.yml defines ${variable} which not used."
+        echo "${type}/main.yml defines ${variable} which is not used."
         exit 1
       fi
     done
