@@ -7,7 +7,7 @@ variable_whitelist="(service_list)"
 
 validate_environment() {
   for binary in grep cut wc ; do
-    which "${binary}" || (echo "Missing ${binary}, please install it." ; exit 1)
+    which "${binary}" > /dev/null 2>&1 || (echo "Missing ${binary}, please install it." ; exit 1)
   done
 }
 
@@ -16,7 +16,8 @@ checker() {
   if [ -d ${type} -a -f ${type}/main.yml ] ; then
     cat ${type}/main.yml | grep -v '^#' | grep -v '^$' | grep -v -- '---' | grep -v '^ ' | grep -v '^_' | grep -vE "${variable_whitelist}" | cut -d: -f1 | while read variable ; do
       matches=$(grep -Rilw "${variable}" | grep -vE '(tasks/assert.yml|README.md)' | wc -l)
-      if [ ${matches} -le 1 ] ; then
+      internalmatches=$(grep -icw "${variable}" ${type}/main.yml)
+      if [ ${matches} -le 1 -a ${internalmatches} -le 1 ] ; then
         echo "${type}/main.yml defines ${variable} which not used."
         exit 1
       fi
