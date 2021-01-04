@@ -1,7 +1,13 @@
 ---
 
 - id: ansible_role_find_unused_variable
-  name: Find unused variables in Ansible role
+  name: Find unused variables in an Ansible role
   entry: ansible_role_find_unused_variable.sh
   language: script
-  description: Find unused variables in Ansible role.
+  description: Find unused variables in an Ansible role.
+
+- id: ansible_role_find_empty_files
+  name: Find empty files in an Ansible role
+  entry: ansible_role_find_empty_files.sh
+  language: script
+  description: Find emtpy files in an Ansible role.
