@@ -1,0 +1,10 @@
+---
+
+- name: show variable_x
+  debug:
+    msg: "{{ variable_x }}"
+
+- name: work with variable_y
+  template:
+    src: template.j2
+    dest: /tmp/destination

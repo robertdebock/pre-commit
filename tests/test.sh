@@ -4,6 +4,7 @@ test_role() {
   role="${1}"
   expected_unused_variables="${2}"
   expected_empty_files="${3}"
+  expected_empty_directories="${4}"
 
   cd "${role}"
     unused_variables=$(../../ansible_role_find_unused_variable.sh | wc -l)
@@ -21,6 +22,8 @@ test_role() {
   fi
 }
 
-test_role ansible-role-correct 0 0
-test_role ansible-role-unused-variables 3 0
-test_role ansible-role-empty_files 0 3
+# This runs the tests and tess the test_role function what to expect.
+test_role ansible-role-correct           0 0 0
+test_role ansible-role-unused-variables  3 0 0
+test_role ansible-role-empty_files       0 3 0
+test_role ansible-role-empty_directories 0 0 3

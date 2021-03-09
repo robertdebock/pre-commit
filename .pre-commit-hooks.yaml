@@ -11,3 +11,9 @@
   entry: ansible_role_find_empty_files.sh
   language: script
   description: Find emtpy files in an Ansible role.
+
+- id: ansible_role_find_empty_directories
+  name: Find empty directories in an Ansible role
+  entry: ansible_role_find_empty_directories.sh
+  language: script
+  description: Find emtpy directories in an Ansible role.
