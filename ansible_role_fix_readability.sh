@@ -25,7 +25,7 @@ checker() {
       sedder 's/])/] )/g' "${file}"
       echo "Added a space between ] and ) in ${file}."
     fi
-    if [ $("$grep -q ')}' "${file}") -eq 0 ] ; then
+    if [ "$(grep -q ')}' "${file}")" -eq 0 ] ; then
       sedder 's/)}/) }/g' "${file}"
       echo "Added a space between ) and } in ${file}."
     fi
