@@ -8,11 +8,11 @@ done
 
 checker() {
   type="${1}"
-  if [ -d ${type} -a -f ${type}/main.yml ] ; then
-    cat ${type}/main.yml | grep -v '^#' | grep -v '^$' | grep -v -- '---' | grep -v '^ ' | grep -v '^_' | cut -d: -f1 | while read variable ; do
-      matches=$(grep -Rilw "${variable}" * | grep -vE '(tasks/assert.yml|README.md)' | wc -l)
-      internalmatches=$(grep -icw "${variable}" ${type}/main.yml)
-      if [ ${matches} -le 1 -a ${internalmatches} -le 1 ] ; then
+  if [ -d "${type}" ] && [ -f "${type}/main.yml" ] ; then
+    cat "${type}/main.yml" | grep -v '^#' | grep -v '^$' | grep -v -- '---' | grep -v '^ ' | grep -v '^_' | cut -d: -f1 | while read variable ; do
+      matches="$(grep -Rilw "${variable}" * | grep -vE '(tasks/assert.yml|README.md)' | wc -l)"
+      internalmatches="$(grep -icw "${variable}" "${type}/main.yml")"
+      if [ "${matches}" -le 1 ] && [  "${internalmatches}" -le 1 ] ; then
         echo "${type}/main.yml defines ${variable} which is not used."
       fi
     done
@@ -23,7 +23,7 @@ checker() {
 errors=$(for type in  defaults vars ; do checker "${type}" ; done)
 
 # If the "errors" variable has content, something is wrong.
-if [ ! -z "${errors}" ] ; then
+if [ -n "${errors}" ] ; then
   echo "${errors}"
   exit 1
 fi

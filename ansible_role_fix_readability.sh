@@ -1,8 +1,6 @@
 #!/bin/sh
 
-for binary in sed ; do
-  which "${binary}" > /dev/null 2>&1 || (echo "Missing ${binary}, please install it." ; exit 1)
-done
+which sed > /dev/null 2>&1 || (echo "Missing ${binary}, please install it." ; exit 1)
 
 sedder(){
   operatingsystem="$(uname -s)"
@@ -23,13 +21,11 @@ sedder(){
 checker() {
   file="${1}/main.yml"
   if [ -f "${file}" ] ; then
-    grep -q '])' "${file}"
-    if [ "$?" -eq 0 ] ; then
+    if [ "$(grep -q '])' "${file}")" -eq 0 ] ; then
       sedder 's/])/] )/g' "${file}"
       echo "Added a space between ] and ) in ${file}."
     fi
-    grep -q ')}' "${file}"
-    if [ "$?" -eq 0 ] ; then
+    if [ $("$grep -q ')}' "${file}") -eq 0 ] ; then
       sedder 's/)}/) }/g' "${file}"
       echo "Added a space between ) and } in ${file}."
     fi

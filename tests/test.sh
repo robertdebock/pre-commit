@@ -6,9 +6,10 @@ test_role() {
   expected_empty_files="${3}"
   expected_empty_directories="${4}"
 
-  cd "${role}"
+  cd "${role}" || return
     unused_variables=$(../../ansible_role_find_unused_variable.sh | wc -l)
     empty_files=$(../../ansible_role_find_empty_files.sh | wc -l)
+    empty_directories=$(../../ansible_role_find_empty_directories.sh | wc -l)
   cd ../
   
   if [ "${unused_variables}" != "${expected_unused_variables}" ] ; then
@@ -18,6 +19,11 @@ test_role() {
   
   if [ "${empty_files}" != "${expected_empty_files}" ] ; then
     echo "${role} shows ${empty_files} empty files, expecting ${expected_empty_files}."
+    return 1
+  fi
+
+  if [ "${empty_directories}" != "${expected_empty_directories}" ] ; then
+    echo "${role} shows ${empty_directories} empty directories, expecting ${expected_empty_directories}."
     return 1
   fi
 }

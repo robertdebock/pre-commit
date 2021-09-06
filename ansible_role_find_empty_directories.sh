@@ -1,8 +1,6 @@
 #!/bin/sh
 
-for binary in find ; do
-  which "${binary}" > /dev/null 2>&1 || (echo "Missing ${binary}, please install it." ; exit 1)
-done
+which find > /dev/null 2>&1 || (echo "Missing ${binary}, please install it." ; exit 1)
 
 checker() {
   if [ -d "${1}" ] ; then
@@ -14,6 +12,6 @@ checker() {
   fi
 }
 
-for directory in $(find ./ -maxdepth 1 -type d) ; do
-  checker ${directory}
+find ./ -maxdepth 1 -type d | while read dir ; do
+  checker $dir
 done
