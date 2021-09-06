@@ -9,7 +9,7 @@ Expand (or create) your `.pre-commit-config.yml` with this section:
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.1.2
+    rev: v1.1.3
     hooks:
       - id: ansible_role_find_unused_variable
 ```
@@ -21,7 +21,31 @@ This hook can find empty `defaults/main.yml`, `handlers/main.yml` and `vars/main
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.1.2
+    rev: v1.1.3
     hooks:
       - id: ansible_role_find_empty_files
+```
+
+## Ansible roles empty directory finder
+
+This hook can find empty directories.
+
+```yaml
+repos:
+  - repo: https://github.com/robertdebock/pre-commit
+    rev: v1.1.3
+    hooks:
+      - id: ansible_role_find_empty_directory
+```
+
+## Ansible roles readability fixer
+
+This hook can find empty `defaults/main.yml` and `vars/main.yml`.
+
+```yaml
+repos:
+  - repo: https://github.com/robertdebock/pre-commit
+    rev: v1.1.3
+    hooks:
+      - id: ansible_role_find_empty_directory
 ```

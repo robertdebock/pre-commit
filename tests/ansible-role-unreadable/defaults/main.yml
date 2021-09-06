@@ -1,0 +1,7 @@
+---
+
+_some_variable:
+  default: x
+  RedHat: y
+
+some_variable: "_some_variable[anible_os_family] | default(_some_variable['default;])}}"
