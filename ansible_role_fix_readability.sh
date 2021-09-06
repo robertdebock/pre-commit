@@ -1,6 +1,6 @@
 #!/bin/sh
 
-which sed > /dev/null 2>&1 || (echo "Missing ${binary}, please install it." ; exit 1)
+which sed > /dev/null 2>&1 || (echo "Missing sed, please install it." ; exit 1)
 
 sedder(){
   operatingsystem="$(uname -s)"
