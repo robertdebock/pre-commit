@@ -21,11 +21,11 @@ sedder(){
 checker() {
   file="${1}/main.yml"
   if [ -f "${file}" ] ; then
-    if [ "$(grep -q '])' "${file}")" -eq 0 ] ; then
+    if grep -q '])' "${file}" ; then
       sedder 's/])/] )/g' "${file}"
       echo "Added a space between ] and ) in ${file}."
     fi
-    if [ "$(grep -q ')}' "${file}")" -eq 0 ] ; then
+    if grep -q ')}' "${file}" ; then
       sedder 's/)}/) }/g' "${file}"
       echo "Added a space between ) and } in ${file}."
     fi
