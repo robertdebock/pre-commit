@@ -1,3 +1,8 @@
 ---
 
-variable_z: value_z
+variable_c: value_c
+
+variable_d:
+  - value_d
+variable_e:
+  - value_e
