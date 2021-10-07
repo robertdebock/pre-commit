@@ -1,0 +1,6 @@
+---
+
+- name: call another unused handler
+  setup:
+  notify:
+    - unused handler number two

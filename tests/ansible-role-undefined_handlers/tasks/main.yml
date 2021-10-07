@@ -1,0 +1,11 @@
+---
+
+- name: call a used handler
+  setup:
+  notify:
+    - used handler
+
+- name: call an unused handler
+  setup:
+  notify:
+    - unused handler
