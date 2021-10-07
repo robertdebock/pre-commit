@@ -23,3 +23,9 @@
   entry: ansible_role_fix_readability.sh
   language: script
   description: Fix readability in Ansible role
+
+- id: ansible_role_find_undefined_handlers
+  name: Find undefined handlers
+  entry: ansible_role_find_undefined_handlers.sh
+  language: script
+  description: Find notified handlers that are not defined.
