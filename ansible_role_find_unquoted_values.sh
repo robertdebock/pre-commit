@@ -8,8 +8,8 @@ done
 
 checker() {
   matches=$(find ./ -name '*.yml' -exec grep "^.*: *[^\"][0-9]*\..*" {} \;)
-  if [ ! -z "${matches}" ] ; then
-    if [ $(echo ${matches} | wc -l) -gt 0 ] ; then
+  if [ -n "${matches}" ] ; then
+    if [ "$(echo ${matches} | wc -l)" -gt 0 ] ; then
       echo "Unquoted value(s) found."
     fi
   fi
