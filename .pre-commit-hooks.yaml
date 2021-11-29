@@ -34,4 +34,4 @@
   name: Find unquoted values that look like a version
   entry: ansible_role_find_unquoted_values.sh
   language: script
-  description: Some version-like variable give issues when not quoted.
+  description: Find version-like values that are not quoted.
