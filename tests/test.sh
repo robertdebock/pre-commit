@@ -6,12 +6,14 @@ test_role() {
   expected_empty_files="${3}"
   expected_empty_directories="${4}"
   expected_undefined_handlers="${5}"
+  expected_unquoted_values="${6}"
 
   cd "${role}" || return
     unused_variables=$(../../ansible_role_find_unused_variable.sh | wc -l)
     empty_files=$(../../ansible_role_find_empty_files.sh | wc -l)
     empty_directories=$(../../ansible_role_find_empty_directories.sh | wc -l)
     undefined_handlers=$(../../ansible_role_find_undefined_handlers.sh | wc -l)
+    unquoted_values=$(../../ansible_role_find_unquoted_values.sh | wc -l)
   cd ../
   
   if [ "$(( unused_variables * 1 ))" -ne "${expected_unused_variables}" ] ; then
@@ -33,11 +35,17 @@ test_role() {
     echo "${role} shows ${undefined_handlers} undefined handlers, expecting ${expected_undefined_handlers}."
     return 1
   fi
+
+  if [ "$(( unquoted_values * 1 ))" != "${expected_unquoted_values}" ] ; then
+    echo "${role} shows $((unquoted_values * 1 )) unquoted values, expecting ${expected_unquoted_values}."
+    return 1
+  fi
 }
 
 # This runs the tests and tests the test_role function what to expect.
-test_role ansible-role-correct            0 0 0 0
-test_role ansible-role-unused-variables   3 0 0 0
-test_role ansible-role-empty_files        0 3 0 0
-test_role ansible-role-empty_directories  0 0 3 0
-test_role ansible-role-undefined_handlers 0 0 0 2
+test_role ansible-role-correct            0 0 0 0 0
+test_role ansible-role-unused-variables   3 0 0 0 0
+test_role ansible-role-empty_files        0 3 0 0 0
+test_role ansible-role-empty_directories  0 0 3 0 0
+test_role ansible-role-undefined_handlers 0 0 0 2 0
+test_role ansible-role-unquoted_values    0 0 0 0 1
