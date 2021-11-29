@@ -17,22 +17,22 @@ test_role() {
   cd ../
   
   if [ "$(( unused_variables * 1 ))" -ne "${expected_unused_variables}" ] ; then
-    echo "${role} shows ${unused_variables} unused variables, expecting ${expected_unused_variables}."
+    echo "${role} shows $(( unused_variables * 1 )) unused variables, expecting ${expected_unused_variables}."
     return 1
   fi
   
   if [ "$(( empty_files * 1))" -ne "${expected_empty_files}" ] ; then
-    echo "${role} shows ${empty_files} empty files, expecting ${expected_empty_files}."
+    echo "${role} shows $(( empty_files * 1 )) empty files, expecting ${expected_empty_files}."
     return 1
   fi
 
   if [ "$(( empty_directories * 1 ))" -ne "${expected_empty_directories}" ] ; then
-    echo "${role} shows ${empty_directories} empty directories, expecting ${expected_empty_directories}."
+    echo "${role} shows $(( empty_directories * 1 )) empty directories, expecting ${expected_empty_directories}."
     return 1
   fi
 
   if [ "$(( undefined_handlers * 1 ))" != "${expected_undefined_handlers}" ] ; then
-    echo "${role} shows ${undefined_handlers} undefined handlers, expecting ${expected_undefined_handlers}."
+    echo "${role} shows $(( undefined_handlers * 1 )) undefined handlers, expecting ${expected_undefined_handlers}."
     return 1
   fi
 
