@@ -29,3 +29,9 @@
   entry: ansible_role_find_undefined_handlers.sh
   language: script
   description: Find notified handlers that are not defined.
+
+- id: ansible_role_find_unquoted_values
+  name: Find unquoted values that look like a version
+  entry: ansible_role_find_unquoted_values.sh
+  language: script
+  description: Some version-like variable give issues when not quoted.
