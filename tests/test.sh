@@ -44,7 +44,7 @@ test_role() {
 
 # This runs the tests and tests the test_role function what to expect.
 test_role ansible-role-correct            0 0 0 0 0
-test_role ansible-role-unused-variables   3 0 0 0 0
+test_role ansible-role-unused_variables   3 0 0 0 0
 test_role ansible-role-empty_files        0 3 0 0 0
 test_role ansible-role-empty_directories  0 0 3 0 0
 test_role ansible-role-undefined_handlers 0 0 0 2 0
