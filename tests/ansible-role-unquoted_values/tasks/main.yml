@@ -3,3 +3,7 @@
 - name: show something
   debug:
     msg: "{{ unquoted_value }}"
+
+- name: show some other thing
+  debug:
+    msg: "{{ quoted_value }}"
