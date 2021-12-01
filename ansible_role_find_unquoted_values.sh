@@ -7,7 +7,7 @@ for binary in grep cut wc ; do
 done
 
 checker() {
-  matches=$(find ./ -name '*.yml' -exec grep '^.*: [0-9]*\..*$' {} \; | wc -l)
+  matches=$(find ./ -name '*.yml' -not -path ./cache -exec grep '^.*: [0-9]*\..*$' {} \; | wc -l)
   if [ -n "${matches}" ] ; then
     if [ "${matches}" -gt 0 ] ; then
       echo "Unquoted value(s) found."
