@@ -2,3 +2,6 @@
 
 unquoted_value: 1.2
 quoted_value: "2.3"
+
+unquoted_value_with_colon: here:there
+quoted_value_with_colon: "there:here"
