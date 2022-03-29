@@ -12,6 +12,6 @@ checker() {
   fi
 }
 
-find ./ -maxdepth 1 -type d | while read -r dir ; do
+find ./ -maxdepth 1 -type d -not -name '.*' | while read -r dir ; do
   checker "$dir"
 done
