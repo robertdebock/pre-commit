@@ -35,3 +35,9 @@
   entry: ansible_role_find_unquoted_values.sh
   language: script
   description: Find version-like values that are not quoted.
+
+- id: ansible_role_find_horizonal_when
+  name: Find when statements that are not spread vertically
+  entry: ansible_role_find_horizonal_when.sh
+  language: script
+  description: Find when statements that can be improved by vertical spreading.
