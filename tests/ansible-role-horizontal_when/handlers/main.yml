@@ -1,0 +1,6 @@
+---
+
+- name: this file is not empty
+  debug:
+    msg: "There."
+  when: true

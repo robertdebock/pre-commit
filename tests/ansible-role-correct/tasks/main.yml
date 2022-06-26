@@ -3,6 +3,8 @@
 - name: show variable_x
   debug:
     msg: "{{ variable_x }}"
+  when:
+    - variable_x is defined
 
 - name: work with variable_y
   template:
