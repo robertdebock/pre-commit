@@ -7,7 +7,7 @@ Have all checks run:
 ```yaml
 repos:
    - repo: https://github.com/robertdebock/pre-commit
-     rev: v1.5.0
+     rev: v1.5.1
      hooks:
        - id: ansible_role_find_unused_variable
        - id: ansible_role_find_empty_files
@@ -29,7 +29,7 @@ Expand (or create) your `.pre-commit-config.yml` with this section:
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_find_unused_variable
 ```
@@ -41,7 +41,7 @@ This hook can find empty `defaults/main.yml`, `handlers/main.yml` and `vars/main
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_find_empty_files
 ```
@@ -53,7 +53,7 @@ This hook can find empty directories.
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_find_empty_directory
 ```
@@ -65,7 +65,7 @@ This hook can improve readability.
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_fix_readability
 ```
@@ -77,7 +77,7 @@ This hook can find undefined handlers.
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_find_undefined_handlers
 ```
@@ -89,7 +89,7 @@ This hook can find unquoted values.
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_find_unquoted_values
 ```
@@ -101,7 +101,7 @@ This hook can find when statements that can be spread vertically.
 ```yaml
 repos:
   - repo: https://github.com/robertdebock/pre-commit
-    rev: v1.5.0
+    rev: v1.5.1
     hooks:
       - id: ansible_role_find_horizonal_when
 ```
