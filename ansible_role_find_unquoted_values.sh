@@ -12,7 +12,7 @@ checker() {
     version_pattern='[a-zA-z0-9\-\_]*: [0-9].*\.'
     colon_pattern='[a-zA-z0-9\-\_]*: [a-zA-z0-9\-\_].*:.*'
     pattern="(${version_pattern}|${colon_pattern})"
-    matches=$(find "${directory}" -name '*.yml' -exec grep -E "${pattern}" {} \; | wc -l)
+    matches=$(find "${directory}" -name '*.yml' -exec grep -E "^${pattern}" {} \; | wc -l)
     if [ -n "${matches}" ] ; then
       if [ "${matches}" -gt 0 ] ; then
         echo "Found $((matches * 1)) risky and unquoted values in ${directory}."
