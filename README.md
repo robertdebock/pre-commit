@@ -46,6 +46,11 @@ repos:
       - id: ansible_role_find_empty_files
 ```
 
+Extra parameter available:
+
+- `-l <number>`: number of minimum lines to declare that a file is empty (by default: 2)
+
+
 ## Ansible roles empty directory finder
 
 This hook can find empty directories.
@@ -57,6 +62,10 @@ repos:
     hooks:
       - id: ansible_role_find_empty_directory
 ```
+
+Extra parameter available:
+
+- `-d <number>`: number of sub folder (maxdepth) to check (by default: 1)
 
 ## Ansible roles readability fixer
 
@@ -82,6 +91,12 @@ repos:
       - id: ansible_role_find_undefined_handlers
 ```
 
+Know bug:
+
+- doesn't detect notification in "listener".
+- doesn't work if notify have quote an not name of the handler task (or the opposite).
+
+
 ## Ansible roles find unquoted values
 
 This hook can find unquoted values.
@@ -104,4 +119,18 @@ repos:
     rev: v1.5.1
     hooks:
       - id: ansible_role_find_horizonal_when
+```
+
+
+## Parameters
+
+It is possible to change the folder where the check is made.  To do that, add extra parameters:
+
+```yaml
+repos:
+  - repo: https://github.com/robertdebock/pre-commit
+    rev: v1.5.1
+    hooks:
+      - id: ansible_role_find_horizonal_when
+        args: [-f roles/*]
 ```
