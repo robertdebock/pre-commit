@@ -15,7 +15,7 @@ repos:
        - id: ansible_role_fix_readability
        - id: ansible_role_find_undefined_handlers
        - id: ansible_role_find_unquoted_values
-       - id: ansible_role_find_horizonal_when
+       - id: ansible_role_find_horizontal_when
 ```
 
 You can also select single checks, read futher for more details.
@@ -109,7 +109,7 @@ repos:
       - id: ansible_role_find_unquoted_values
 ```
 
-## Ansible roles find horizonal when
+## Ansible roles find horizontal when
 
 This hook can find when statements that can be spread vertically.
 
@@ -118,7 +118,7 @@ repos:
   - repo: https://github.com/robertdebock/pre-commit
     rev: v1.5.1
     hooks:
-      - id: ansible_role_find_horizonal_when
+      - id: ansible_role_find_horizontal_when
 ```
 
 
@@ -131,6 +131,6 @@ repos:
   - repo: https://github.com/robertdebock/pre-commit
     rev: v1.5.1
     hooks:
-      - id: ansible_role_find_horizonal_when
+      - id: ansible_role_find_horizontal_when
         args: [-f roles/*]
 ```
