@@ -36,6 +36,6 @@ if [ -z "$maxdepth" ]; then
   maxdepth=1
 fi
 
-find $sub_folder/ -maxdepth $maxdepth -type d -not -name '.*' | while read -r dir ; do
+find "$sub_folder/" -maxdepth "$maxdepth" -type d -not -name '.*' | while read -r dir ; do
   checker "$dir"
 done
