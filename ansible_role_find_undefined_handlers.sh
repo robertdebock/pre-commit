@@ -11,7 +11,7 @@ checker() {
     # See if there any handlers.
     if [ -d "${folder}"/handlers ] && [ -f "${folder}"/handlers/main.yml ] ; then
       # See if there are any handlers called by notify.
-      for file in ${folder}/tasks/*.yml ; do
+      for file in "${folder}"/tasks/*.yml ; do
         if grep -q 'notify:' "${file}" ; then
           # Filter out the called handlers.
           notification=$(awk '$1 == "-"{ if (key == "notify:") print $0; next } {key=$1}' "${file}"| sed 's/ *- //' | sort | uniq)
