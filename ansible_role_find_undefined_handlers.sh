@@ -16,7 +16,7 @@ checker() {
           # Filter out the called handlers.
           notification=$(awk '$1 == "-"{ if (key == "notify:") print $0; next } {key=$1}' "${file}"| sed 's/ *- //' | sort | uniq)
           echo "${notification}" | while read -r notify ; do
-            if ! grep -q -- "- name: ${notify}" ${1}/handlers/main.yml ; then
+            if ! grep -q -- "- name: ${notify}" "${1}"/handlers/main.yml ; then
               echo "The notification to \"${notify}\" in ${file} is not mention in any handlers/main.yml."
             fi
           done
