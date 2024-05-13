@@ -29,7 +29,7 @@ while getopts 'f:l:' OPTION; do
     ;;
   esac
 done
-shift "$(($OPTIND -1))"
+shift "$((OPTIND -1))"
 
 if [ -z "$sub_folder" ]; then
   sub_folder="."
