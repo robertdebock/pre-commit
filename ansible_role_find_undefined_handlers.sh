@@ -9,7 +9,7 @@ done
 checker() {
   for folder in ${1} ; do
     # See if there any handlers.
-    if [ -d ${folder}/handlers ] && [ -f ${folder}/handlers/main.yml ] ; then
+    if [ -d "${folder}"/handlers ] && [ -f "${folder}"/handlers/main.yml ] ; then
       # See if there are any handlers called by notify.
       for file in ${folder}/tasks/*.yml ; do
         if grep -q 'notify:' "${file}" ; then
