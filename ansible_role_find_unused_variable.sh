@@ -48,7 +48,7 @@ if [ -z "$sub_folder" ]; then
 fi
 
 # Save the errors in a variable "errors".
-errors=$(for type in  defaults vars ; do checker "${type}" "${sub_folder}" ; done)
+errors=$(for type in defaults vars ; do checker "${type}" "${sub_folder}" ; done)
 
 # If the "errors" variable has content, something is wrong.
 if [ -n "${errors}" ] ; then
