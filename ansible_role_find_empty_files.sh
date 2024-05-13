@@ -40,5 +40,5 @@ if [ -z "$nbr_lines" ]; then
 fi
 
 for type in defaults handlers vars tasks ; do
-  checker "${sub_folder}/${type}" ${nbr_lines}
+  checker "${sub_folder}/${type}" "${nbr_lines}"
 done
